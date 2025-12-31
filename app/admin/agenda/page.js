@@ -15,7 +15,7 @@ export default function AdminAgendaPage() {
         fetch('/api/agenda')
             .then(res => res.json())
             .then(data => {
-                setAgenda(data);
+                setAgenda(Array.isArray(data) ? data : []);
                 setLoading(false);
             })
             .catch(err => setLoading(false));
@@ -65,7 +65,9 @@ export default function AdminAgendaPage() {
                         style={{
                             background: 'var(--primary)', color: 'white', border: 'none',
                             padding: '0.8rem 1.2rem', borderRadius: '8px',
-                            display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', fontWeight: '600'
+                            display: 'flex', alignItems: 'center', gap: '0.5rem',
+                            cursor: 'pointer', fontWeight: '600',
+                            position: 'relative', zIndex: 1
                         }}>
                         <Plus size={18} /> Tambah Agenda
                     </button>

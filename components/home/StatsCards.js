@@ -16,11 +16,14 @@ export default function StatsCards() {
     useEffect(() => {
         fetch('/api/stats')
             .then(res => res.json())
-            .then(data => setStats(data))
-            .catch(err => console.error("Failed to load stats", err));
+            .then(data => setStats(Array.isArray(data) ? data : []))
+            .catch(err => {
+                console.error("Failed to load stats", err);
+                setStats([]);
+            });
     }, []);
 
-    if (stats.length === 0) return null;
+    if (!Array.isArray(stats) || stats.length === 0) return null;
 
     return (
         <section className={styles.section}>

@@ -13,9 +13,13 @@ export default function TentangPage() {
             fetch('/api/organisasi').then(res => res.json()),
             fetch('/api/divisions').then(res => res.json())
         ]).then(([orgData, divData]) => {
-            setMembers(orgData);
-            setDivisions(divData);
-        }).catch(err => console.error("Failed to load data", err));
+            setMembers(Array.isArray(orgData) ? orgData : []);
+            setDivisions(Array.isArray(divData) ? divData : []);
+        }).catch(err => {
+            console.error("Failed to load data", err);
+            setMembers([]);
+            setDivisions([]);
+        });
     }, []);
 
     return (
@@ -49,7 +53,7 @@ export default function TentangPage() {
 
                 {/* Struktur Pengurus Dynamic */}
                 <section>
-                    {divisions.map(division => {
+                    {Array.isArray(divisions) && divisions.map(division => {
                         const divisionMembers = members.filter(m => m.division === division);
                         if (divisionMembers.length === 0) return null;
 

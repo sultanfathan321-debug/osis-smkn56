@@ -1,8 +1,15 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { Facebook, Instagram, Twitter, Mail, MapPin, Phone } from 'lucide-react';
 import styles from './Footer.module.css';
 
 export default function Footer() {
+    const pathname = usePathname();
+
+    // Don't show footer in admin dashboard
+    if (pathname?.startsWith('/admin')) return null;
     return (
         <footer className={styles.footer}>
             <div className={styles.container}>

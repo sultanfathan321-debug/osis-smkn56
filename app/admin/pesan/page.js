@@ -12,7 +12,7 @@ export default function AdminPesanPage() {
         fetch('/api/contact')
             .then(res => res.json())
             .then(data => {
-                setData(data);
+                setData(Array.isArray(data) ? data : []);
                 setLoading(false);
             })
             .catch(err => setLoading(false));

@@ -1,14 +1,19 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import styles from './Navbar.module.css';
 import ThemeToggle from './ThemeToggle';
 
 export default function Navbar() {
+    const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+
+    // Don't show navbar in admin dashboard
+    if (pathname?.startsWith('/admin')) return null;
 
     useEffect(() => {
         const handleScroll = () => {

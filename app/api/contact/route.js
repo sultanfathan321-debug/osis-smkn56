@@ -1,12 +1,11 @@
 import { NextResponse } from 'next/server';
-import { getJSONData, saveJSONData } from '@/lib/db';
-
-const FILE_NAME = 'messages.json';
+import clientPromise from '@/lib/mongodb';
 
 export async function POST(request) {
     try {
         const data = await request.json();
-        const currentData = getJSONData(FILE_NAME);
+        const client = await clientPromise;
+        const db = client.db('osis_db');
 
         const newEntry = {
             id: Date.now(),
@@ -14,8 +13,7 @@ export async function POST(request) {
             ...data
         };
 
-        currentData.unshift(newEntry);
-        saveJSONData(FILE_NAME, currentData);
+        await db.collection('messages').insertOne(newEntry);
 
         return NextResponse.json({ success: true, message: 'Pesan berhasil dikirim!' });
     } catch (error) {
@@ -24,6 +22,12 @@ export async function POST(request) {
 }
 
 export async function GET() {
-    const data = getJSONData(FILE_NAME);
-    return NextResponse.json(data);
+    try {
+        const client = await clientPromise;
+        const db = client.db('osis_db');
+        const messages = await db.collection('messages').find({}).sort({ submittedAt: -1 }).toArray();
+        return NextResponse.json(messages);
+    } catch (error) {
+        return NextResponse.json([], { status: 500 });
+    }
 }

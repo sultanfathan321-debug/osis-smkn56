@@ -26,9 +26,9 @@ export default function AdminPengurusPage() {
         const orgData = await orgRes.json();
         const divData = await divRes.json();
 
-        setData(orgData);
-        setDivisions(divData);
-        if (!formData.division && divData.length > 0) {
+        setData(Array.isArray(orgData) ? orgData : []);
+        setDivisions(Array.isArray(divData) ? divData : []);
+        if (!formData.division && Array.isArray(divData) && divData.length > 0) {
             setFormData(prev => ({ ...prev, division: divData[0] }));
         }
         setLoading(false);
@@ -88,7 +88,7 @@ export default function AdminPengurusPage() {
                     <h1>Struktur Organisasi</h1>
                     <p>Kelola susunan pengurus OSIS & Divisi</p>
                 </div>
-                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                <div style={{ display: 'flex', gap: '0.5rem', position: 'relative', zIndex: 1 }}>
                     <button
                         onClick={() => setIsDivManagerOpen(!isDivManagerOpen)}
                         style={{

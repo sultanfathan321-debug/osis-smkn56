@@ -13,7 +13,7 @@ export default function ArtikelPage() {
         fetch('/api/articles')
             .then(res => res.json())
             .then(data => {
-                setArticles(data);
+                setArticles(Array.isArray(data) ? data : []);
                 setLoading(false);
             })
             .catch(err => setLoading(false));
@@ -31,7 +31,7 @@ export default function ArtikelPage() {
                     <div style={{ textAlign: 'center', color: 'var(--muted-foreground)' }}>Loading...</div>
                 ) : (
                     <div className={styles.grid}>
-                        {articles.length > 0 ? (
+                        {Array.isArray(articles) && articles.length > 0 ? (
                             articles.map((article) => (
                                 <article key={article.id} className={styles.card}>
                                     <div className={styles.imageWrapper}>

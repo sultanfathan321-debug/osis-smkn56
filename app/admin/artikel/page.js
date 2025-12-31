@@ -16,7 +16,7 @@ export default function AdminArtikelPage() {
         fetch('/api/articles')
             .then(res => res.json())
             .then(data => {
-                setArticles(data);
+                setArticles(Array.isArray(data) ? data : []);
                 setLoading(false);
             })
             .catch(err => setLoading(false));
@@ -101,7 +101,9 @@ export default function AdminArtikelPage() {
                         style={{
                             background: 'var(--primary)', color: 'white', border: 'none',
                             padding: '0.8rem 1.2rem', borderRadius: '8px',
-                            display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', fontWeight: '600'
+                            display: 'flex', alignItems: 'center', gap: '0.5rem',
+                            cursor: 'pointer', fontWeight: '600',
+                            position: 'relative', zIndex: 1
                         }}>
                         <Plus size={18} /> Tulis Artikel
                     </button>
@@ -180,7 +182,7 @@ export default function AdminArtikelPage() {
                             </tr>
                         </thead>
                         <tbody>
-                            {articles.map((item) => (
+                            {Array.isArray(articles) && articles.map((item) => (
                                 <tr key={item.id} style={{ borderBottom: '1px solid var(--border)' }}>
                                     <td style={{ padding: '1rem', fontWeight: '500' }}>
                                         {item.title}

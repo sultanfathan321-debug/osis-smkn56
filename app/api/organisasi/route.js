@@ -1,26 +1,29 @@
 import { NextResponse } from 'next/server';
-import { getJSONData, saveJSONData } from '@/lib/db';
-
-const FILE_NAME = 'organisasi.json';
+import clientPromise from '@/lib/mongodb';
 
 export async function GET() {
-    const data = getJSONData(FILE_NAME);
-    return NextResponse.json(data);
+    try {
+        const client = await clientPromise;
+        const db = client.db('osis_db');
+        const members = await db.collection('members').find({}).toArray();
+        return NextResponse.json(members);
+    } catch (error) {
+        return NextResponse.json([], { status: 500 });
+    }
 }
 
 export async function POST(request) {
     try {
         const data = await request.json();
-        const currentData = getJSONData(FILE_NAME);
+        const client = await clientPromise;
+        const db = client.db('osis_db');
 
         const newEntry = {
             id: Date.now(),
             ...data
         };
 
-        // Add to beginning of list
-        const updatedData = [newEntry, ...currentData];
-        saveJSONData(FILE_NAME, updatedData);
+        await db.collection('members').insertOne(newEntry);
 
         return NextResponse.json({ success: true, message: 'Data berhasil ditambahkan!' });
     } catch (error) {
@@ -35,9 +38,11 @@ export async function DELETE(request) {
 
         if (!id) return NextResponse.json({ success: false, message: 'ID required' }, { status: 400 });
 
-        let currentData = getJSONData(FILE_NAME);
-        currentData = currentData.filter(item => item.id != id);
-        saveJSONData(FILE_NAME, currentData);
+        const client = await clientPromise;
+        const db = client.db('osis_db');
+
+        // Handle both string and number IDs potentially
+        await db.collection('members').deleteOne({ id: Number(id) });
 
         return NextResponse.json({ success: true, message: 'Data berhasil dihapus!' });
     } catch (error) {
