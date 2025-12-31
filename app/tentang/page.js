@@ -4,26 +4,18 @@ import { useState, useEffect } from 'react';
 import { Target, Lightbulb } from 'lucide-react';
 import styles from './Tentang.module.css';
 
-const DIVISIONS = [
-
-    "Inti",
-    "Sekbid 1: Keagamaan dan Budi Pekerti Luhur",
-    "Sekbid 2: Organisasi dan Olahraga",
-    "Sekbid 3: Kewirausahaan",
-    "Sekbid 4: Hubungan Masyarakat",
-    "Sekbid 5: Bela Negara dan Kehidupan Berbangsa",
-    "Sekbid 6: Sastra dan Bahasa",
-    "Sekbid 7: Media Publikasi"
-];
-
 export default function TentangPage() {
     const [members, setMembers] = useState([]);
+    const [divisions, setDivisions] = useState([]);
 
     useEffect(() => {
-        fetch('/api/organisasi')
-            .then(res => res.json())
-            .then(data => setMembers(data))
-            .catch(err => console.error("Failed to load members", err));
+        Promise.all([
+            fetch('/api/organisasi').then(res => res.json()),
+            fetch('/api/divisions').then(res => res.json())
+        ]).then(([orgData, divData]) => {
+            setMembers(orgData);
+            setDivisions(divData);
+        }).catch(err => console.error("Failed to load data", err));
     }, []);
 
     return (
@@ -57,7 +49,7 @@ export default function TentangPage() {
 
                 {/* Struktur Pengurus Dynamic */}
                 <section>
-                    {DIVISIONS.map(division => {
+                    {divisions.map(division => {
                         const divisionMembers = members.filter(m => m.division === division);
                         if (divisionMembers.length === 0) return null;
 
