@@ -20,7 +20,8 @@ export async function POST(request) {
 
         return NextResponse.json({ success: true, message: 'Pendaftaran berhasil!' });
     } catch (error) {
-        return NextResponse.json({ success: false, message: 'Gagal menyimpan data.' }, { status: 500 });
+        console.error("REGISTER_POST_ERROR:", error);
+        return NextResponse.json({ success: false, message: 'Gagal mendaftar: ' + error.message }, { status: 500 });
     }
 }
 

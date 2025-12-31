@@ -20,7 +20,8 @@ export async function POST(request) {
 
         return NextResponse.json({ success: true, message: 'Pesan berhasil dikirim!' });
     } catch (error) {
-        return NextResponse.json({ success: false, message: 'Gagal mengirim pesan.' }, { status: 500 });
+        console.error("CONTACT_POST_ERROR:", error);
+        return NextResponse.json({ success: false, message: 'Gagal mengirim pesan: ' + error.message }, { status: 500 });
     }
 }
 
