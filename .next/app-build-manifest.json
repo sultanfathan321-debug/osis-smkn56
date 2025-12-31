@@ -6,23 +6,17 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/admin/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/admin/page.css",
-      "static/chunks/app/admin/page.js"
-    ],
     "/admin/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/admin/layout.css",
       "static/chunks/app/admin/layout.js"
     ],
-    "/admin/artikel/page": [
+    "/admin/pengurus/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/admin/artikel/page.css",
-      "static/chunks/app/admin/artikel/page.js"
+      "static/css/app/admin/pengurus/page.css",
+      "static/chunks/app/admin/pengurus/page.js"
     ]
   }
 }
