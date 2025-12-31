@@ -1,10 +1,10 @@
 {
   "pages": {
-    "/page": [
+    "/galeri/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
+      "static/css/app/galeri/page.css",
+      "static/chunks/app/galeri/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -12,29 +12,11 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/galeri/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/galeri/page.css",
-      "static/chunks/app/galeri/page.js"
-    ],
-    "/kontak/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/kontak/page.css",
-      "static/chunks/app/kontak/page.js"
-    ],
-    "/tentang/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/tentang/page.css",
-      "static/chunks/app/tentang/page.js"
-    ],
-    "/agenda/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/agenda/page.css",
-      "static/chunks/app/agenda/page.js"
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
     ],
     "/artikel/page": [
       "static/chunks/webpack.js",
@@ -42,21 +24,23 @@
       "static/css/app/artikel/page.css",
       "static/chunks/app/artikel/page.js"
     ],
-    "/daftar/page": [
+    "/agenda/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/daftar/page.css",
-      "static/chunks/app/daftar/page.js"
+      "static/css/app/agenda/page.css",
+      "static/chunks/app/agenda/page.js"
     ],
-    "/artikel/[id]/page": [
+    "/tentang/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/artikel/[id]/page.js"
+      "static/css/app/tentang/page.css",
+      "static/chunks/app/tentang/page.js"
     ],
-    "/not-found": [
+    "/kontak/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/not-found.js"
+      "static/css/app/kontak/page.css",
+      "static/chunks/app/kontak/page.js"
     ]
   }
 }

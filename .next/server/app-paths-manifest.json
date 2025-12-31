@@ -1,10 +1,12 @@
 {
-  "/not-found": "app/not-found.js",
+  "/page": "app/page.js",
   "/artikel/page": "app/artikel/page.js",
   "/galeri/page": "app/galeri/page.js",
-  "/page": "app/page.js",
-  "/artikel/[id]/page": "app/artikel/[id]/page.js",
-  "/kontak/page": "app/kontak/page.js",
+  "/api/stats/route": "app/api/stats/route.js",
   "/api/articles/route": "app/api/articles/route.js",
-  "/api/stats/route": "app/api/stats/route.js"
+  "/tentang/page": "app/tentang/page.js",
+  "/agenda/page": "app/agenda/page.js",
+  "/api/divisions/route": "app/api/divisions/route.js",
+  "/api/organisasi/route": "app/api/organisasi/route.js",
+  "/kontak/page": "app/kontak/page.js"
 }
