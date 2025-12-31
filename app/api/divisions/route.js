@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import clientPromise from '@/lib/mongodb';
 
+export const dynamic = 'force-dynamic';
+
 // Default divisions if DB is empty
 const DEFAULT_DIVISIONS = [
     "Inti",

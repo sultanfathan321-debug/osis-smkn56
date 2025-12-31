@@ -1,75 +1,151 @@
 {
   "pages": {
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
+    "/_not-found": [
+      "static/chunks/webpack-285c65ca17128056.js",
+      "static/chunks/fd9d1056-7353c298fb3e53bd.js",
+      "static/chunks/69-97d57917953f0f52.js",
+      "static/chunks/main-app-5b6fe85946a98092.js",
+      "static/chunks/app/_not-found-3c47c32c3e39cb72.js"
     ],
     "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
+      "static/chunks/webpack-285c65ca17128056.js",
+      "static/chunks/fd9d1056-7353c298fb3e53bd.js",
+      "static/chunks/69-97d57917953f0f52.js",
+      "static/chunks/main-app-5b6fe85946a98092.js",
+      "static/chunks/807-1d11c05ccb2ac618.js",
+      "static/css/12d71a93f029e075.css",
+      "static/chunks/app/layout-2b90de0898ac6e27.js"
     ],
-    "/admin/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/admin/page.css",
-      "static/chunks/app/admin/page.js"
-    ],
-    "/admin/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/admin/layout.css",
-      "static/chunks/app/admin/layout.js"
-    ],
-    "/admin/agenda/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/admin/agenda/page.css",
-      "static/chunks/app/admin/agenda/page.js"
-    ],
-    "/admin/stats/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/admin/stats/page.css",
-      "static/chunks/app/admin/stats/page.js"
-    ],
-    "/admin/artikel/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/admin/artikel/page.css",
-      "static/chunks/app/admin/artikel/page.js"
-    ],
-    "/admin/peminat/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/admin/peminat/page.css",
-      "static/chunks/app/admin/peminat/page.js"
-    ],
-    "/daftar/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/daftar/page.css",
-      "static/chunks/app/daftar/page.js"
-    ],
-    "/admin/pengurus/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/admin/pengurus/page.css",
-      "static/chunks/app/admin/pengurus/page.js"
+    "/agenda/page": [
+      "static/chunks/webpack-285c65ca17128056.js",
+      "static/chunks/fd9d1056-7353c298fb3e53bd.js",
+      "static/chunks/69-97d57917953f0f52.js",
+      "static/chunks/main-app-5b6fe85946a98092.js",
+      "static/css/9c4b5510886e3db3.css",
+      "static/chunks/app/agenda/page-1cc3bc3996801d4e.js"
     ],
     "/artikel/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/artikel/page.css",
-      "static/chunks/app/artikel/page.js"
+      "static/chunks/webpack-285c65ca17128056.js",
+      "static/chunks/fd9d1056-7353c298fb3e53bd.js",
+      "static/chunks/69-97d57917953f0f52.js",
+      "static/chunks/main-app-5b6fe85946a98092.js",
+      "static/chunks/807-1d11c05ccb2ac618.js",
+      "static/css/42de3a1363d44a83.css",
+      "static/chunks/app/artikel/page-5b45cc9fbee2f70e.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-285c65ca17128056.js",
+      "static/chunks/fd9d1056-7353c298fb3e53bd.js",
+      "static/chunks/69-97d57917953f0f52.js",
+      "static/chunks/main-app-5b6fe85946a98092.js",
+      "static/chunks/807-1d11c05ccb2ac618.js",
+      "static/css/9c7960d0795f7718.css",
+      "static/chunks/app/page-2a164ae336d5928b.js"
+    ],
+    "/daftar/page": [
+      "static/chunks/webpack-285c65ca17128056.js",
+      "static/chunks/fd9d1056-7353c298fb3e53bd.js",
+      "static/chunks/69-97d57917953f0f52.js",
+      "static/chunks/main-app-5b6fe85946a98092.js",
+      "static/css/0b1acb7beda80b13.css",
+      "static/chunks/app/daftar/page-b91ca05c830adf8c.js"
+    ],
+    "/kontak/page": [
+      "static/chunks/webpack-285c65ca17128056.js",
+      "static/chunks/fd9d1056-7353c298fb3e53bd.js",
+      "static/chunks/69-97d57917953f0f52.js",
+      "static/chunks/main-app-5b6fe85946a98092.js",
+      "static/css/8c90da8fe4dc40da.css",
+      "static/chunks/app/kontak/page-c0f8e3536dfa84ac.js"
+    ],
+    "/galeri/page": [
+      "static/chunks/webpack-285c65ca17128056.js",
+      "static/chunks/fd9d1056-7353c298fb3e53bd.js",
+      "static/chunks/69-97d57917953f0f52.js",
+      "static/chunks/main-app-5b6fe85946a98092.js",
+      "static/css/cbd76336c562346f.css",
+      "static/chunks/app/galeri/page-c8e941b2241f235c.js"
     ],
     "/artikel/[id]/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/artikel/[id]/page.js"
+      "static/chunks/webpack-285c65ca17128056.js",
+      "static/chunks/fd9d1056-7353c298fb3e53bd.js",
+      "static/chunks/69-97d57917953f0f52.js",
+      "static/chunks/main-app-5b6fe85946a98092.js",
+      "static/chunks/807-1d11c05ccb2ac618.js",
+      "static/chunks/app/artikel/[id]/page-a479c4244db53c93.js"
+    ],
+    "/tentang/page": [
+      "static/chunks/webpack-285c65ca17128056.js",
+      "static/chunks/fd9d1056-7353c298fb3e53bd.js",
+      "static/chunks/69-97d57917953f0f52.js",
+      "static/chunks/main-app-5b6fe85946a98092.js",
+      "static/css/6414821df57693e8.css",
+      "static/chunks/app/tentang/page-c064bf7a81949194.js"
+    ],
+    "/admin/layout": [
+      "static/chunks/webpack-285c65ca17128056.js",
+      "static/chunks/fd9d1056-7353c298fb3e53bd.js",
+      "static/chunks/69-97d57917953f0f52.js",
+      "static/chunks/main-app-5b6fe85946a98092.js",
+      "static/chunks/807-1d11c05ccb2ac618.js",
+      "static/css/c78cd3a7591b6a1e.css",
+      "static/chunks/app/admin/layout-0442a8483a505f44.js"
+    ],
+    "/admin/pesan/page": [
+      "static/chunks/webpack-285c65ca17128056.js",
+      "static/chunks/fd9d1056-7353c298fb3e53bd.js",
+      "static/chunks/69-97d57917953f0f52.js",
+      "static/chunks/main-app-5b6fe85946a98092.js",
+      "static/css/d3292c1b5337ed90.css",
+      "static/chunks/app/admin/pesan/page-0f97afd8d2fdcf72.js"
+    ],
+    "/admin/artikel/page": [
+      "static/chunks/webpack-285c65ca17128056.js",
+      "static/chunks/fd9d1056-7353c298fb3e53bd.js",
+      "static/chunks/69-97d57917953f0f52.js",
+      "static/chunks/main-app-5b6fe85946a98092.js",
+      "static/css/d3292c1b5337ed90.css",
+      "static/chunks/app/admin/artikel/page-9b059a4f193ba445.js"
+    ],
+    "/admin/agenda/page": [
+      "static/chunks/webpack-285c65ca17128056.js",
+      "static/chunks/fd9d1056-7353c298fb3e53bd.js",
+      "static/chunks/69-97d57917953f0f52.js",
+      "static/chunks/main-app-5b6fe85946a98092.js",
+      "static/css/d3292c1b5337ed90.css",
+      "static/chunks/app/admin/agenda/page-5136a83d5adae360.js"
+    ],
+    "/admin/pengurus/page": [
+      "static/chunks/webpack-285c65ca17128056.js",
+      "static/chunks/fd9d1056-7353c298fb3e53bd.js",
+      "static/chunks/69-97d57917953f0f52.js",
+      "static/chunks/main-app-5b6fe85946a98092.js",
+      "static/css/d3292c1b5337ed90.css",
+      "static/chunks/app/admin/pengurus/page-036ad1b6d4767236.js"
+    ],
+    "/admin/page": [
+      "static/chunks/webpack-285c65ca17128056.js",
+      "static/chunks/fd9d1056-7353c298fb3e53bd.js",
+      "static/chunks/69-97d57917953f0f52.js",
+      "static/chunks/main-app-5b6fe85946a98092.js",
+      "static/css/d3292c1b5337ed90.css",
+      "static/chunks/app/admin/page-e8d5715e4d6aefa5.js"
+    ],
+    "/admin/stats/page": [
+      "static/chunks/webpack-285c65ca17128056.js",
+      "static/chunks/fd9d1056-7353c298fb3e53bd.js",
+      "static/chunks/69-97d57917953f0f52.js",
+      "static/chunks/main-app-5b6fe85946a98092.js",
+      "static/css/d3292c1b5337ed90.css",
+      "static/chunks/app/admin/stats/page-2c191d13b97712e3.js"
+    ],
+    "/admin/peminat/page": [
+      "static/chunks/webpack-285c65ca17128056.js",
+      "static/chunks/fd9d1056-7353c298fb3e53bd.js",
+      "static/chunks/69-97d57917953f0f52.js",
+      "static/chunks/main-app-5b6fe85946a98092.js",
+      "static/css/d3292c1b5337ed90.css",
+      "static/chunks/app/admin/peminat/page-97305043c0a67a7c.js"
     ]
   }
 }
