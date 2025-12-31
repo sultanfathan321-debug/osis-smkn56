@@ -54,7 +54,7 @@
     font-size: 0.9rem;
     cursor: pointer;
     transition: all 0.2s;
-    color: var(--foreground);
+    color: #1e293b;
 }
 
 .filterBtn:hover {
@@ -104,7 +104,7 @@
 .dateDay {
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--primary);
+    color: #0f172a;
     line-height: 1;
 }
 
@@ -128,7 +128,7 @@
 
 .eventHeader h3 {
     font-size: 1.25rem;
-    color: var(--foreground);
+    color: #0f172a;
 }
 
 .badge {
@@ -169,7 +169,7 @@
 }
 
 .description {
-    color: var(--foreground);
+    color: #334155;
     opacity: 0.8;
     font-size: 0.95rem;
     line-height: 1.5;

@@ -1,22 +1,62 @@
 {
   "pages": {
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/admin/layout": [
+    "/galeri/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/admin/layout.css",
-      "static/chunks/app/admin/layout.js"
+      "static/css/app/galeri/page.css",
+      "static/chunks/app/galeri/page.js"
     ],
-    "/admin/pengurus/page": [
+    "/kontak/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/admin/pengurus/page.css",
-      "static/chunks/app/admin/pengurus/page.js"
+      "static/css/app/kontak/page.css",
+      "static/chunks/app/kontak/page.js"
+    ],
+    "/tentang/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/tentang/page.css",
+      "static/chunks/app/tentang/page.js"
+    ],
+    "/agenda/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/agenda/page.css",
+      "static/chunks/app/agenda/page.js"
+    ],
+    "/artikel/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/artikel/page.css",
+      "static/chunks/app/artikel/page.js"
+    ],
+    "/daftar/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/daftar/page.css",
+      "static/chunks/app/daftar/page.js"
+    ],
+    "/artikel/[id]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/artikel/[id]/page.js"
+    ],
+    "/not-found": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/not-found.js"
     ]
   }
 }

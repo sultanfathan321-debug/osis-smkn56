@@ -67,13 +67,13 @@
 }
 
 .card {
-    background: white;
+    background: var(--card-bg);
     border-radius: 16px;
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    border: 1px solid #f1f5f9;
+    border: 1px solid var(--border);
 }
 
 .card:hover {
@@ -87,7 +87,7 @@
     /* Square image as usually seen in profiles */
     overflow: hidden;
     position: relative;
-    background-color: #f1f5f9;
+    background-color: var(--muted);
 }
 
 .image {
@@ -145,7 +145,7 @@
 }
 
 .visionCard {
-    background: white;
+    background: var(--card-bg);
     padding: 2.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -180,7 +180,7 @@
     margin-bottom: 0.8rem;
     padding-left: 1.5rem;
     position: relative;
-    color: var(--muted-foreground);
+    color: var(--foreground);
 }
 
 .list li::before {

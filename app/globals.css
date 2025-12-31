@@ -1,16 +1,30 @@
 :root {
-  /* Colors */
+  /* Colors - Light Theme (Default) */
   --primary: #0f172a; /* Deep Navy */
-  --secondary: #fbbf24; /* Gold/Yellow */
+  --secondary: #24fb9e; /* Gold/Yellow */
   --accent: #3b82f6; /* Bright Blue */
   --background: #ffffff;
   --foreground: #1e293b;
   --muted: #f1f5f9;
   --muted-foreground: #64748b;
   --border: #e2e8f0;
+  --card-bg: #ffffff;
   
   /* Typography */
   --font-sans: 'Inter', sans-serif;
+}
+
+[data-theme='neon'] {
+  /* Colors - Dark Neon Theme */
+  --primary: #a3e635; /* Neon Lime */
+  --secondary: #a855f7; /* Neon Purple */
+  --accent: #181818; /* Neon Pink */
+  --background: #020617; /* Very Deep Blue/Black */
+  --foreground: #f8fafc; /* White/Light Gray */
+  --muted: #1e293b; /* Dark Gray */
+  --muted-foreground: #94a3b8;
+  --border: #334155;
+  --card-bg: rgba(30, 41, 59, 0.7); /* Glass Dark */
 }
 
 * {

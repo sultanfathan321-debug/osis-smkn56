@@ -1,5 +1,10 @@
 {
-  "/api/organisasi/route": "app/api/organisasi/route.js",
-  "/api/divisions/route": "app/api/divisions/route.js",
-  "/admin/pengurus/page": "app/admin/pengurus/page.js"
+  "/not-found": "app/not-found.js",
+  "/artikel/page": "app/artikel/page.js",
+  "/galeri/page": "app/galeri/page.js",
+  "/page": "app/page.js",
+  "/artikel/[id]/page": "app/artikel/[id]/page.js",
+  "/kontak/page": "app/kontak/page.js",
+  "/api/articles/route": "app/api/articles/route.js",
+  "/api/stats/route": "app/api/stats/route.js"
 }

@@ -31,7 +31,7 @@
 }
 
 .card {
-    background: white;
+    background: var(--card-bg);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -115,7 +115,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--accent);
+    color: var(--foreground);
     font-weight: 600;
     font-size: 0.9rem;
     transition: gap 0.2s;
