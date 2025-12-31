@@ -22,11 +22,12 @@ export default function KontakPage() {
                 body: JSON.stringify(data),
             });
 
+            const dataRes = await res.json();
             if (res.ok) {
                 alert('Pesan berhasil terkirim! Terima kasih atas masukan anda.');
                 e.target.reset();
             } else {
-                alert('Gagal mengirim pesan.');
+                alert('Gagal mengirim pesan: ' + (dataRes.message || 'Error tidak diketahui'));
             }
         } catch (error) {
             alert('Terjadi kesalahan. Periksa koneksi internet anda.');

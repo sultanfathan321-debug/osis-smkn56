@@ -22,11 +22,12 @@ export default function DaftarPage() {
                 body: JSON.stringify(data),
             });
 
+            const dataRes = await res.json();
             if (res.ok) {
                 alert('Pendaftaran berhasil! Kami akan menghubungi anda segera.');
                 e.target.reset();
             } else {
-                alert('Gagal mendaftar. Silakan coba lagi.');
+                alert('Gagal mendaftar: ' + (dataRes.message || 'Error tidak diketahui'));
             }
         } catch (error) {
             alert('Terjadi kesalahan. Periksa koneksi internet anda.');
