@@ -6,7 +6,6 @@ export const dynamic = 'force-dynamic';
 export async function GET() {
     try {
         const client = await getMongoClient();
-        if (!client) throw new Error('DB connection failed');
         const db = client.db('osis_db');
         // Get all agenda items, sort by date ascending (oldest to newest for upcoming events)
         // or strictly strictly speaking, user might want newest added? 
@@ -23,7 +22,6 @@ export async function POST(request) {
     try {
         const newData = await request.json();
         const client = await getMongoClient();
-        if (!client) throw new Error('DB connection failed');
         const db = client.db('osis_db');
         const collection = db.collection('agenda');
 
@@ -50,7 +48,6 @@ export async function DELETE(request) {
         const id = Number(searchParams.get('id'));
 
         const client = await getMongoClient();
-        if (!client) throw new Error('DB connection failed');
         const db = client.db('osis_db');
         await db.collection('agenda').deleteOne({ id: id });
 

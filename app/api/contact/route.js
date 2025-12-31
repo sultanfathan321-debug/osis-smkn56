@@ -7,7 +7,6 @@ export async function POST(request) {
     try {
         const data = await request.json();
         const client = await getMongoClient();
-        if (!client) throw new Error('DB connection failed');
         const db = client.db('osis_db');
 
         const newEntry = {
@@ -28,7 +27,6 @@ export async function POST(request) {
 export async function GET() {
     try {
         const client = await getMongoClient();
-        if (!client) throw new Error('DB connection failed');
         const db = client.db('osis_db');
         const messages = await db.collection('messages').find({}).sort({ submittedAt: -1 }).toArray();
         return NextResponse.json(messages);

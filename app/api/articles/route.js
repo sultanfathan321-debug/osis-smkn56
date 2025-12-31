@@ -9,7 +9,6 @@ export async function GET(request) {
         const id = searchParams.get('id');
 
         const client = await getMongoClient();
-        if (!client) throw new Error('DB connection failed');
         const db = client.db('osis_db');
         const collection = db.collection('articles');
 
@@ -37,7 +36,6 @@ export async function POST(request) {
     try {
         const newData = await request.json();
         const client = await getMongoClient();
-        if (!client) throw new Error('DB connection failed');
         const db = client.db('osis_db');
         const collection = db.collection('articles');
 
@@ -70,7 +68,6 @@ export async function DELETE(request) {
         const id = Number(searchParams.get('id'));
 
         const client = await getMongoClient();
-        if (!client) throw new Error('DB connection failed');
         const db = client.db('osis_db');
 
         await db.collection('articles').deleteOne({ id: id });
