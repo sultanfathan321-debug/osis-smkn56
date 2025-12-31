@@ -1,11 +1,12 @@
 import { NextResponse } from 'next/server';
-import clientPromise from '@/lib/mongodb';
+import getMongoClient from '@/lib/mongodb';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
     try {
-        const client = await clientPromise;
+        const client = await getMongoClient();
+        if (!client) throw new Error('DB connection failed');
         const db = client.db('osis_db');
         const stats = await db.collection('stats').find({}).toArray();
         return NextResponse.json(Array.isArray(stats) ? stats : []);
@@ -17,7 +18,8 @@ export async function GET() {
 export async function POST(request) {
     try {
         const newData = await request.json();
-        const client = await clientPromise;
+        const client = await getMongoClient();
+        if (!client) throw new Error('DB connection failed');
         const db = client.db('osis_db');
         const collection = db.collection('stats');
 

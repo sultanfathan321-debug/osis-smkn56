@@ -1,11 +1,12 @@
 import { NextResponse } from 'next/server';
-import clientPromise from '@/lib/mongodb';
+import getMongoClient from '@/lib/mongodb';
 
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
     try {
-        const client = await clientPromise;
+        const client = await getMongoClient();
+        if (!client) throw new Error('DB connection failed');
         const db = client.db('osis_db');
         const members = await db.collection('members').find({}).toArray();
         return NextResponse.json(members);
@@ -17,7 +18,8 @@ export async function GET() {
 export async function POST(request) {
     try {
         const data = await request.json();
-        const client = await clientPromise;
+        const client = await getMongoClient();
+        if (!client) throw new Error('DB connection failed');
         const db = client.db('osis_db');
 
         const newEntry = {
@@ -40,7 +42,8 @@ export async function DELETE(request) {
 
         if (!id) return NextResponse.json({ success: false, message: 'ID required' }, { status: 400 });
 
-        const client = await clientPromise;
+        const client = await getMongoClient();
+        if (!client) throw new Error('DB connection failed');
         const db = client.db('osis_db');
 
         // Handle both string and number IDs potentially

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import clientPromise from '@/lib/mongodb';
+import getMongoClient from '@/lib/mongodb';
 
 export const dynamic = 'force-dynamic';
 
@@ -17,7 +17,8 @@ const DEFAULT_DIVISIONS = [
 
 export async function GET() {
     try {
-        const client = await clientPromise;
+        const client = await getMongoClient();
+        if (!client) throw new Error('DB connection failed');
         const db = client.db('osis_db');
         const result = await db.collection('settings').findOne({ type: 'divisions' });
 
@@ -33,7 +34,8 @@ export async function GET() {
 export async function POST(request) {
     try {
         const data = await request.json(); // Expects array of strings
-        const client = await clientPromise;
+        const client = await getMongoClient();
+        if (!client) throw new Error('DB connection failed');
         const db = client.db('osis_db');
 
         // Upsert the divisions setting

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import clientPromise from '@/lib/mongodb';
+import getMongoClient from '@/lib/mongodb';
 
 export const dynamic = 'force-dynamic';
 
@@ -8,7 +8,8 @@ export async function GET(request) {
         const { searchParams } = new URL(request.url);
         const id = searchParams.get('id');
 
-        const client = await clientPromise;
+        const client = await getMongoClient();
+        if (!client) throw new Error('DB connection failed');
         const db = client.db('osis_db');
         const collection = db.collection('articles');
 
@@ -35,7 +36,8 @@ export async function GET(request) {
 export async function POST(request) {
     try {
         const newData = await request.json();
-        const client = await clientPromise;
+        const client = await getMongoClient();
+        if (!client) throw new Error('DB connection failed');
         const db = client.db('osis_db');
         const collection = db.collection('articles');
 
@@ -67,7 +69,8 @@ export async function DELETE(request) {
         const { searchParams } = new URL(request.url);
         const id = Number(searchParams.get('id'));
 
-        const client = await clientPromise;
+        const client = await getMongoClient();
+        if (!client) throw new Error('DB connection failed');
         const db = client.db('osis_db');
 
         await db.collection('articles').deleteOne({ id: id });
