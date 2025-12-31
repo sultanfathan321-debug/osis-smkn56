@@ -1,0 +1,340 @@
+/*!**************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/home/ActivityPreview.module.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************/
+.ActivityPreview_section__K4xZX {
+    padding: 5rem 0;
+    background-color: var(--muted);
+}
+
+.ActivityPreview_container__0mBlB {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ActivityPreview_header__NY0DP {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+}
+
+.ActivityPreview_subtitle__ge78g {
+    color: var(--secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.ActivityPreview_title__3u_ZY {
+    font-size: 2.5rem;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.ActivityPreview_link__xE4fC {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    font-weight: 600;
+    transition: gap 0.2s;
+}
+
+.ActivityPreview_link__xE4fC:hover {
+    gap: 0.8rem;
+    color: var(--secondary);
+}
+
+.ActivityPreview_grid__1GAdx {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    gap: 2rem;
+}
+
+.ActivityPreview_card__Bx_jm {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.ActivityPreview_card__Bx_jm:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.ActivityPreview_imageWrapper__7DkCC {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.ActivityPreview_image__0OoU_ {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.ActivityPreview_card__Bx_jm:hover .ActivityPreview_image__0OoU_ {
+    transform: scale(1.1);
+}
+
+.ActivityPreview_category__krRpw {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: var(--primary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 10;
+}
+
+.ActivityPreview_content__ujAJg {
+    padding: 1.5rem;
+}
+
+.ActivityPreview_meta__M4aNH {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: var(--muted-foreground);
+    font-size: 0.85rem;
+}
+
+.ActivityPreview_metaItem__X3w9b {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.ActivityPreview_cardTitle__CQjHA {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--foreground);
+    line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+    .ActivityPreview_grid__1GAdx {
+        grid-template-columns: 1fr;
+    }
+
+    .ActivityPreview_header__NY0DP {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+/*!***************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/home/Hero.module.css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************/
+.Hero_hero__DBRgo {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2070&auto=format&fit=crop');
+    /* Placeholder image */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.Hero_overlay__UCTRh {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.9));
+    z-index: 1;
+}
+
+.Hero_content__o4e1C {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.Hero_badge__nU2A4 {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(251, 191, 36, 0.2);
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.Hero_hero__DBRgo h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.Hero_highlight__vwxSj {
+    color: var(--secondary);
+}
+
+.Hero_hero__DBRgo p {
+    font-size: 1.25rem;
+    margin-bottom: 2.5rem;
+    color: #cbd5e1;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Hero_actions__Qhge2 {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.Hero_btn___lM9r {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.Hero_btnPrimary__1_NO5 {
+    background: var(--secondary);
+    color: var(--primary);
+    border: 2px solid var(--secondary);
+}
+
+.Hero_btnPrimary__1_NO5:hover {
+    background: transparent;
+    color: var(--secondary);
+}
+
+.Hero_btnOutline__Mjfsf {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.Hero_btnOutline__Mjfsf:hover {
+    background: white;
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .Hero_hero__DBRgo h1 {
+        font-size: 2.5rem;
+    }
+
+    .Hero_hero__DBRgo p {
+        font-size: 1rem;
+    }
+
+    .Hero_actions__Qhge2 {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .Hero_btn___lM9r {
+        width: 100%;
+        justify-content: center;
+    }
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./components/home/StatsCards.module.css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************/
+.StatsCards_section__uXWZA {
+    padding: 4rem 0;
+    margin-top: -5rem;
+    /* Overlap with hero */
+    position: relative;
+    z-index: 10;
+}
+
+.StatsCards_container__Ld5gA {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+    gap: 2rem;
+}
+
+.StatsCards_card__dICQB {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.StatsCards_card__dICQB:hover {
+    transform: translateY(-5px);
+}
+
+.StatsCards_iconWrapper__doij2 {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.StatsCards_value___JC69 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.StatsCards_label__An5Em {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--foreground);
+    margin-bottom: 0.25rem;
+}
+
+.StatsCards_description__xC7oM {
+    font-size: 0.9rem;
+    color: var(--muted-foreground);
+}
+
+@media (max-width: 900px) {
+    .StatsCards_section__uXWZA {
+        margin-top: 0;
+        padding-top: 2rem;
+    }
+
+    .StatsCards_container__Ld5gA {
+        grid-template-columns: 1fr;
+    }
+}

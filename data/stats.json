@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "label": "Anggota Aktif",
+    "value": "60",
+    "iconName": "Users",
+    "color": "#3b82f6",
+    "description": "Siswa berdedikasi tinggi"
+  },
+  {
+    "id": 2,
+    "label": "Kegiatan/Tahun",
+    "value": "24",
+    "iconName": "Calendar",
+    "color": "#fbbf24",
+    "description": "Program kerja terlaksana"
+  },
+  {
+    "id": 3,
+    "label": "Penghargaan",
+    "value": "15+",
+    "iconName": "Trophy",
+    "color": "#a855f7",
+    "description": "Prestasi tingkat daerah & nasional"
+  }
+]
