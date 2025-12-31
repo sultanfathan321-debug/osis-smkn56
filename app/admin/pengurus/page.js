@@ -112,7 +112,7 @@ export default function AdminPengurusPage() {
 
             {/* Division Manager Panel */}
             {isDivManagerOpen && (
-                <div style={{ background: '#f8fafc', padding: '1.5rem', borderRadius: '12px', marginBottom: '2rem', border: '1px solid var(--border)' }}>
+                <div style={{ background: 'var(--muted)', padding: '1.5rem', borderRadius: '12px', marginBottom: '2rem', border: '1px solid var(--border)' }}>
                     <h3 style={{ marginBottom: '1rem' }}>Kelola Daftar Divisi / Sekbid</h3>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1rem' }}>
                         {divisions.map((div, idx) => (
@@ -137,7 +137,7 @@ export default function AdminPengurusPage() {
 
             {/* Add Person Form */}
             {isPersonFormOpen && (
-                <div style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', marginBottom: '2rem', border: '1px solid var(--border)' }}>
+                <div style={{ background: 'var(--card-bg)', padding: '1.5rem', borderRadius: '12px', marginBottom: '2rem', border: '1px solid var(--border)' }}>
                     <h3 style={{ marginBottom: '1rem' }}>Tambah Pengurus Baru</h3>
                     <form onSubmit={handlePersonSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                         <input
@@ -241,7 +241,7 @@ export default function AdminPengurusPage() {
                         ) : (
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem' }}>
                                 {members.map(member => (
-                                    <div key={member.id} style={{ background: 'white', padding: '1rem', borderRadius: '8px', border: '1px solid var(--border)', position: 'relative' }}>
+                                    <div key={member.id} style={{ background: 'var(--card-bg)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--border)', position: 'relative' }}>
                                         <img src={member.image} alt={member.name} style={{ width: '100%', aspectRatio: '1/1', objectFit: 'cover', borderRadius: '8px', marginBottom: '0.5rem', background: '#f1f5f9' }} />
                                         <h4 style={{ fontSize: '1rem' }}>{member.name}</h4>
                                         <p style={{ color: '#64748b', fontSize: '0.85rem' }}>{member.role}</p>

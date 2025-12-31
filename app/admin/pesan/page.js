@@ -35,7 +35,7 @@ export default function AdminPesanPage() {
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                             {data.map((item) => (
                                 <div key={item.id} style={{
-                                    background: 'white',
+                                    background: 'var(--card-bg)',
                                     padding: '1.5rem',
                                     borderRadius: '12px',
                                     border: '1px solid var(--border)'
@@ -45,7 +45,7 @@ export default function AdminPesanPage() {
                                             <h3 style={{ fontSize: '1.1rem', marginBottom: '0.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                                                 <User size={18} /> {item.nama}
                                             </h3>
-                                            <span style={{ fontSize: '0.9rem', color: '#64748b', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                                            <span style={{ fontSize: '0.9rem', color: 'var(--muted-foreground)', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
                                                 <Mail size={14} /> {item.email}
                                             </span>
                                         </div>
@@ -54,7 +54,7 @@ export default function AdminPesanPage() {
                                         </span>
                                     </div>
 
-                                    <div style={{ background: '#f8fafc', padding: '1rem', borderRadius: '8px', fontSize: '0.95rem', lineHeight: '1.6' }}>
+                                    <div style={{ background: 'var(--muted)', padding: '1rem', borderRadius: '8px', fontSize: '0.95rem', lineHeight: '1.6' }}>
                                         {item.pesan}
                                     </div>
                                 </div>

@@ -75,7 +75,7 @@ export default function AdminAgendaPage() {
             </header>
 
             {isFormOpen && (
-                <div style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', marginTop: '2rem', border: '1px solid var(--border)' }}>
+                <div style={{ background: 'var(--card-bg)', padding: '1.5rem', borderRadius: '12px', marginTop: '2rem', border: '1px solid var(--border)' }}>
                     <h3 style={{ marginBottom: '1rem' }}>{formData.id ? 'Edit Agenda' : 'Agenda Baru'}</h3>
                     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                         <input
