@@ -46,7 +46,7 @@ export default function AdminStatsPage() {
 
             <form onSubmit={handleSubmit} style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                 {stats.map((stat, index) => (
-                    <div key={stat.id} style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', border: '1px solid var(--border)' }}>
+                    <div key={stat.id} style={{ background: 'var(--card-bg)', padding: '1.5rem', borderRadius: '12px', border: '1px solid var(--border)' }}>
                         <h3 style={{ marginBottom: '1rem', color: stat.color }}>Kartu {index + 1}: {stat.label}</h3>
 
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
