@@ -36,32 +36,32 @@ export default function AdminPeminatPage() {
                             {data.map((item) => (
                                 <div key={item.id} style={{
                                     background: 'var(--card-bg)',
-                                    padding: '1.5rem',
+                                    padding: '1.25rem',
                                     borderRadius: '12px',
                                     border: '1px solid var(--border)',
                                     display: 'flex',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'flex-start',
+                                    flexDirection: 'column',
                                     gap: '1rem'
                                 }}>
-                                    <div style={{ flex: 1 }}>
-                                        <h3 style={{ fontSize: '1.2rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                                            <User size={20} /> {item.nama}
-                                            <span style={{ fontSize: '0.8rem', background: '#e0f2fe', color: '#0369a1', padding: '0.2rem 0.6rem', borderRadius: '50px' }}>{item.jurusan}</span>
-                                        </h3>
-                                        <div style={{ display: 'flex', gap: '1rem', color: 'var(--muted-foreground)', fontSize: '0.9rem', marginBottom: '1rem' }}>
-                                            <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}><Phone size={14} /> {item.whatsapp}</span>
-                                            <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}><Mail size={14} /> {item.email}</span>
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.5rem' }}>
+                                        <div style={{ flex: 1, minWidth: '200px' }}>
+                                            <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+                                                <User size={18} /> {item.nama}
+                                                <span style={{ fontSize: '0.75rem', background: '#e0f2fe', color: '#0369a1', padding: '0.2rem 0.6rem', borderRadius: '50px' }}>{item.jurusan}</span>
+                                            </h3>
+                                            <div style={{ display: 'flex', gap: '1rem', color: 'var(--muted-foreground)', fontSize: '0.85rem', flexWrap: 'wrap' }}>
+                                                <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}><Phone size={14} /> {item.whatsapp}</span>
+                                                <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}><Mail size={14} /> {item.email}</span>
+                                            </div>
                                         </div>
-
-                                        <div style={{ background: 'var(--muted)', padding: '1rem', borderRadius: '8px' }}>
-                                            <p style={{ fontSize: '0.9rem', marginBottom: '0.5rem' }}><strong>Alasan:</strong> {item.alasan}</p>
-                                            {item.pengalaman && <p style={{ fontSize: '0.9rem' }}><strong>Pengalaman:</strong> {item.pengalaman}</p>}
+                                        <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+                                            {new Date(item.submittedAt).toLocaleDateString()}
                                         </div>
                                     </div>
 
-                                    <div style={{ fontSize: '0.8rem', color: '#94a3b8', whiteSpace: 'nowrap' }}>
-                                        {new Date(item.submittedAt).toLocaleDateString()}
+                                    <div style={{ background: 'var(--muted)', padding: '1rem', borderRadius: '8px' }}>
+                                        <p style={{ fontSize: '0.9rem', marginBottom: '0.5rem' }}><strong>Alasan:</strong> {item.alasan}</p>
+                                        {item.pengalaman && <p style={{ fontSize: '0.9rem' }}><strong>Pengalaman:</strong> {item.pengalaman}</p>}
                                     </div>
                                 </div>
                             ))}

@@ -90,7 +90,7 @@ export default function AdminArtikelPage() {
 
     return (
         <div className={styles.container}>
-            <header className={styles.header} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <header className={styles.header} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
                 <div>
                     <h1>Manajemen Artikel</h1>
                     <p>Tulis dan kelola berita atau artikel sekolah</p>
@@ -121,18 +121,18 @@ export default function AdminArtikelPage() {
                             style={{ padding: '0.8rem', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '1rem' }}
                             required
                         />
-                        <div style={{ display: 'flex', gap: '1rem' }}>
+                        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                             <input
                                 placeholder="Penulis"
                                 value={formData.author}
                                 onChange={e => setFormData({ ...formData, author: e.target.value })}
-                                style={{ flex: 1, padding: '0.8rem', borderRadius: '8px', border: '1px solid #cbd5e1' }}
+                                style={{ flex: 1, padding: '0.8rem', borderRadius: '8px', border: '1px solid #cbd5e1', minWidth: '200px' }}
                                 required
                             />
                             <select
                                 value={formData.category}
                                 onChange={e => setFormData({ ...formData, category: e.target.value })}
-                                style={{ flex: 1, padding: '0.8rem', borderRadius: '8px', border: '1px solid #cbd5e1' }}
+                                style={{ flex: 1, padding: '0.8rem', borderRadius: '8px', border: '1px solid #cbd5e1', minWidth: '200px' }}
                             >
                                 <option>Kegiatan</option>
                                 <option>Prestasi</option>
@@ -172,47 +172,49 @@ export default function AdminArtikelPage() {
 
             <div className={styles.recentSection} style={{ marginTop: '2rem' }}>
                 {loading ? <p>Memuat...</p> : (
-                    <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
-                        <thead>
-                            <tr style={{ borderBottom: '2px solid var(--border)' }}>
-                                <th style={{ padding: '1rem' }}>Judul Artikel</th>
-                                <th style={{ padding: '1rem' }}>Penulis</th>
-                                <th style={{ padding: '1rem' }}>Kategori</th>
-                                <th style={{ padding: '1rem' }}>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {Array.isArray(articles) && articles.map((item) => (
-                                <tr key={item.id} style={{ borderBottom: '1px solid var(--border)' }}>
-                                    <td style={{ padding: '1rem', fontWeight: '500' }}>
-                                        {item.title}
-                                        <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '0.2rem' }}>{item.date}</div>
-                                    </td>
-                                    <td style={{ padding: '1rem', color: 'var(--muted-foreground)' }}>{item.author}</td>
-                                    <td style={{ padding: '1rem' }}>
-                                        <span style={{
-                                            padding: '0.25rem 0.75rem',
-                                            borderRadius: '50px',
-                                            fontSize: '0.8rem',
-                                            fontWeight: '600',
-                                            background: 'var(--muted)',
-                                            color: 'var(--foreground)'
-                                        }}>
-                                            {item.category}
-                                        </span>
-                                    </td>
-                                    <td style={{ padding: '1rem', display: 'flex', gap: '0.5rem' }}>
-                                        <button onClick={() => handleEdit(item)} style={{ background: 'none', border: '1px solid var(--border)', padding: '0.5rem', borderRadius: '6px', cursor: 'pointer', color: 'var(--primary)' }}>
-                                            <Edit size={16} />
-                                        </button>
-                                        <button onClick={() => handleDelete(item.id)} style={{ background: 'none', border: '1px solid #fee2e2', padding: '0.5rem', borderRadius: '6px', cursor: 'pointer', color: '#dc2626' }}>
-                                            <Trash2 size={16} />
-                                        </button>
-                                    </td>
+                    <div className={styles.tableContainer}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+                            <thead>
+                                <tr style={{ borderBottom: '2px solid var(--border)' }}>
+                                    <th style={{ padding: '1rem' }}>Judul Artikel</th>
+                                    <th style={{ padding: '1rem' }}>Penulis</th>
+                                    <th style={{ padding: '1rem' }}>Kategori</th>
+                                    <th style={{ padding: '1rem' }}>Aksi</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {Array.isArray(articles) && articles.map((item) => (
+                                    <tr key={item.id} style={{ borderBottom: '1px solid var(--border)' }}>
+                                        <td style={{ padding: '1rem', fontWeight: '500' }}>
+                                            {item.title}
+                                            <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '0.2rem' }}>{item.date}</div>
+                                        </td>
+                                        <td style={{ padding: '1rem', color: 'var(--muted-foreground)' }}>{item.author}</td>
+                                        <td style={{ padding: '1rem' }}>
+                                            <span style={{
+                                                padding: '0.25rem 0.75rem',
+                                                borderRadius: '50px',
+                                                fontSize: '0.8rem',
+                                                fontWeight: '600',
+                                                background: 'var(--muted)',
+                                                color: 'var(--foreground)'
+                                            }}>
+                                                {item.category}
+                                            </span>
+                                        </td>
+                                        <td style={{ padding: '1rem', display: 'flex', gap: '0.5rem' }}>
+                                            <button onClick={() => handleEdit(item)} style={{ background: 'none', border: '1px solid var(--border)', padding: '0.5rem', borderRadius: '6px', cursor: 'pointer', color: 'var(--primary)' }}>
+                                                <Edit size={16} />
+                                            </button>
+                                            <button onClick={() => handleDelete(item.id)} style={{ background: 'none', border: '1px solid #fee2e2', padding: '0.5rem', borderRadius: '6px', cursor: 'pointer', color: '#dc2626' }}>
+                                                <Trash2 size={16} />
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 )}
             </div>
         </div>

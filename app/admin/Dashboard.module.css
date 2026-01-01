@@ -103,3 +103,36 @@
     font-size: 0.85rem;
     color: var(--muted-foreground);
 }
+
+.tableContainer {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-top: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.tableContainer table {
+    min-width: 600px;
+    border-collapse: collapse;
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .recentSection {
+        padding: 1rem;
+    }
+}

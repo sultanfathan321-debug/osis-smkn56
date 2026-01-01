@@ -54,7 +54,7 @@ export default function AdminAgendaPage() {
 
     return (
         <div className={styles.container}>
-            <header className={styles.header} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <header className={styles.header} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
                 <div>
                     <h1>Manajemen Agenda</h1>
                     <p>Tambah, edit, atau hapus agenda kegiatan</p>
@@ -120,47 +120,49 @@ export default function AdminAgendaPage() {
 
             <div className={styles.recentSection} style={{ marginTop: '2rem' }}>
                 {loading ? <p>Memuat...</p> : (
-                    <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
-                        <thead>
-                            <tr style={{ borderBottom: '2px solid var(--border)' }}>
-                                <th style={{ padding: '1rem' }}>Judul Kegiatan</th>
-                                <th style={{ padding: '1rem' }}>Tanggal</th>
-                                <th style={{ padding: '1rem' }}>Tipe</th>
-                                <th style={{ padding: '1rem' }}>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {agenda.map((item) => (
-                                <tr key={item.id} style={{ borderBottom: '1px solid var(--border)' }}>
-                                    <td style={{ padding: '1rem', fontWeight: '500' }}>
-                                        {item.title}
-                                        {item.location && <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '0.2rem' }}>{item.location}</div>}
-                                    </td>
-                                    <td style={{ padding: '1rem', color: 'var(--muted-foreground)' }}>{item.date}</td>
-                                    <td style={{ padding: '1rem' }}>
-                                        <span style={{
-                                            padding: '0.25rem 0.75rem',
-                                            borderRadius: '50px',
-                                            fontSize: '0.8rem',
-                                            fontWeight: '600',
-                                            background: item.type === 'Rapat' ? '#fee2e2' : item.type === 'Event' ? '#dbeafe' : '#fef3c7',
-                                            color: item.type === 'Rapat' ? '#dc2626' : item.type === 'Event' ? '#2563eb' : '#d97706'
-                                        }}>
-                                            {item.type}
-                                        </span>
-                                    </td>
-                                    <td style={{ padding: '1rem', display: 'flex', gap: '0.5rem' }}>
-                                        <button onClick={() => handleEdit(item)} style={{ background: 'none', border: '1px solid var(--border)', padding: '0.5rem', borderRadius: '6px', cursor: 'pointer', color: 'var(--primary)' }}>
-                                            <Edit size={16} />
-                                        </button>
-                                        <button onClick={() => handleDelete(item.id)} style={{ background: 'none', border: '1px solid #fee2e2', padding: '0.5rem', borderRadius: '6px', cursor: 'pointer', color: '#dc2626' }}>
-                                            <Trash2 size={16} />
-                                        </button>
-                                    </td>
+                    <div className={styles.tableContainer}>
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+                            <thead>
+                                <tr style={{ borderBottom: '2px solid var(--border)' }}>
+                                    <th style={{ padding: '1rem' }}>Judul Kegiatan</th>
+                                    <th style={{ padding: '1rem' }}>Tanggal</th>
+                                    <th style={{ padding: '1rem' }}>Tipe</th>
+                                    <th style={{ padding: '1rem' }}>Aksi</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {agenda.map((item) => (
+                                    <tr key={item.id} style={{ borderBottom: '1px solid var(--border)' }}>
+                                        <td style={{ padding: '1rem', fontWeight: '500' }}>
+                                            {item.title}
+                                            {item.location && <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '0.2rem' }}>{item.location}</div>}
+                                        </td>
+                                        <td style={{ padding: '1rem', color: 'var(--muted-foreground)' }}>{item.date}</td>
+                                        <td style={{ padding: '1rem' }}>
+                                            <span style={{
+                                                padding: '0.25rem 0.75rem',
+                                                borderRadius: '50px',
+                                                fontSize: '0.8rem',
+                                                fontWeight: '600',
+                                                background: item.type === 'Rapat' ? '#fee2e2' : item.type === 'Event' ? '#dbeafe' : '#fef3c7',
+                                                color: item.type === 'Rapat' ? '#dc2626' : item.type === 'Event' ? '#2563eb' : '#d97706'
+                                            }}>
+                                                {item.type}
+                                            </span>
+                                        </td>
+                                        <td style={{ padding: '1rem', display: 'flex', gap: '0.5rem' }}>
+                                            <button onClick={() => handleEdit(item)} style={{ background: 'none', border: '1px solid var(--border)', padding: '0.5rem', borderRadius: '6px', cursor: 'pointer', color: 'var(--primary)' }}>
+                                                <Edit size={16} />
+                                            </button>
+                                            <button onClick={() => handleDelete(item.id)} style={{ background: 'none', border: '1px solid #fee2e2', padding: '0.5rem', borderRadius: '6px', cursor: 'pointer', color: '#dc2626' }}>
+                                                <Trash2 size={16} />
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 )}
             </div>
         </div>

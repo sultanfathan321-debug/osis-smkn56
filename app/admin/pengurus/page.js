@@ -122,15 +122,15 @@ export default function AdminPengurusPage() {
                             </div>
                         ))}
                     </div>
-                    <form onSubmit={handleAddDivision} style={{ display: 'flex', gap: '0.5rem' }}>
+                    <form onSubmit={handleAddDivision} style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                         <input
                             value={newDivName}
                             onChange={(e) => setNewDivName(e.target.value)}
-                            placeholder="Nama Divisi / Sekbid Baru..."
-                            style={{ flex: 1, padding: '0.6rem', borderRadius: '6px', border: '1px solid #cbd5e1' }}
+                            placeholder="Nama Divisi..."
+                            style={{ flex: 1, padding: '0.6rem', borderRadius: '6px', border: '1px solid #cbd5e1', minWidth: '150px' }}
                             required
                         />
-                        <button type="submit" style={{ padding: '0.6rem 1rem', background: 'var(--accent)', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer' }}>Tambah</button>
+                        <button type="submit" style={{ padding: '0.6rem 1rem', background: 'var(--accent)', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', flex: '1 0 auto' }}>Tambah</button>
                     </form>
                 </div>
             )}
@@ -239,7 +239,7 @@ export default function AdminPengurusPage() {
                         {members.length === 0 ? (
                             <p style={{ fontSize: '0.9rem', color: '#94a3b8', fontStyle: 'italic' }}>Belum ada anggota di divisi ini.</p>
                         ) : (
-                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem' }}>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '1rem' }}>
                                 {members.map(member => (
                                     <div key={member.id} style={{ background: 'var(--card-bg)', padding: '1rem', borderRadius: '8px', border: '1px solid var(--border)', position: 'relative' }}>
                                         <img src={member.image} alt={member.name} style={{ width: '100%', aspectRatio: '1/1', objectFit: 'cover', borderRadius: '8px', marginBottom: '0.5rem', background: '#f1f5f9' }} />

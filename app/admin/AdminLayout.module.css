@@ -86,7 +86,8 @@
     flex: 1;
     margin-left: 260px;
     padding: 2rem;
-    width: 100%;
+    width: calc(100% - 260px);
+    transition: all 0.3s ease;
 }
 
 .mobileHeader {
@@ -121,8 +122,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 1.5rem;
-        background: var(--background);
+        padding: 0.75rem 1rem;
+        background: var(--card-bg);
         border-bottom: 1px solid var(--border);
         position: sticky;
         top: 0;
@@ -132,14 +133,20 @@
     .mobileHeader .logo {
         font-weight: 700;
         color: var(--primary);
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .toggleBtn {
-        background: none;
+        background: var(--muted);
         border: none;
         color: var(--foreground);
         cursor: pointer;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
     }
 
     .overlay {
