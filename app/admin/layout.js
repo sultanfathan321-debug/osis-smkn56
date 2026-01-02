@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, Calendar, FileText, Settings, LogOut, Users, Mail, BarChart } from 'lucide-react';
+import { LayoutDashboard, Calendar, FileText, Settings, LogOut, Users, Mail, BarChart, Image as ImageIcon } from 'lucide-react';
 import styles from './AdminLayout.module.css';
 
 export default function AdminLayout({ children }) {
@@ -48,6 +48,9 @@ export default function AdminLayout({ children }) {
                     </Link>
                     <Link href="/admin/artikel" className={`${styles.navItem} ${isActive('/admin/artikel') ? styles.active : ''}`}>
                         <FileText size={20} /> Artikel
+                    </Link>
+                    <Link href="/admin/dokumentasi" className={`${styles.navItem} ${isActive('/admin/dokumentasi') ? styles.active : ''}`}>
+                        <ImageIcon size={20} /> Dokumentasi
                     </Link>
                     <Link href="/admin/peminat" className={`${styles.navItem} ${isActive('/admin/peminat') ? styles.active : ''}`}>
                         <Users size={20} /> Pendaftar
