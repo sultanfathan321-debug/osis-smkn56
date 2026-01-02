@@ -6,6 +6,21 @@ import styles from './Daftar.module.css';
 
 export default function DaftarPage() {
     const [loading, setLoading] = useState(false);
+    const [jurusan, setJurusan] = useState([]);
+    const [loadingJurusan, setLoadingJurusan] = useState(true);
+
+    useEffect(() => {
+        fetch('/api/jurusan')
+            .then(res => res.json())
+            .then(data => {
+                setJurusan(Array.isArray(data) ? data : []);
+                setLoadingJurusan(false);
+            })
+            .catch(err => {
+                console.error("Failed to load jurusan", err);
+                setLoadingJurusan(false);
+            });
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -59,13 +74,13 @@ export default function DaftarPage() {
 
                             <div className={styles.formGroup}>
                                 <label><BookOpen size={16} /> Kelas / Jurusan</label>
-                                <select name="jurusan" required>
-                                    <option value="">Pilih Jurusan</option>
-                                    <option value="RPL">Rekayasa Perangkat Lunak</option>
-                                    <option value="TKJ">Teknik Komputer & Jaringan</option>
-                                    <option value="MM">Multimedia</option>
-                                    <option value="DKV">Desain Komunikasi Visual</option>
-                                    <option value="OTKP">Otomatisasi Tata Kelola Perkantoran</option>
+                                <select name="jurusan" required disabled={loadingJurusan}>
+                                    <option value="">{loadingJurusan ? 'Memuat Jurusan...' : 'Pilih Jurusan'}</option>
+                                    {jurusan.map((j, idx) => (
+                                        <option key={j._id || idx} value={j.code}>
+                                            {j.name} ({j.code})
+                                        </option>
+                                    ))}
                                 </select>
                             </div>
                         </div>
