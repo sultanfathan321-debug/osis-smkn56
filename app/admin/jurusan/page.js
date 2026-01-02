@@ -40,10 +40,6 @@ export default function AdminJurusanPage() {
     };
 
     const handleDelete = async (id) => {
-        if (!id) {
-            alert("Jurusan default tidak bisa dihapus. Silahkan simpan satu jurusan baru terlebih dahulu untuk menggantikannya.");
-            return;
-        }
         if (confirm('Hapus jurusan ini?')) {
             await fetch(`/api/jurusan?id=${id}`, { method: 'DELETE' });
             fetchJurusan();
@@ -162,18 +158,12 @@ export default function AdminJurusanPage() {
                                         </td>
                                         <td style={{ padding: '1rem', fontWeight: '500' }}>{item.name}</td>
                                         <td style={{ padding: '1rem', display: 'flex', gap: '0.5rem' }}>
-                                            {item._id ? (
-                                                <>
-                                                    <button onClick={() => handleEdit(item)} style={{ background: 'none', border: '1px solid var(--border)', padding: '0.5rem', borderRadius: '6px', cursor: 'pointer', color: 'var(--primary)' }}>
-                                                        <Edit size={16} />
-                                                    </button>
-                                                    <button onClick={() => handleDelete(item._id)} style={{ background: 'none', border: '1px solid #fee2e2', padding: '0.5rem', borderRadius: '6px', cursor: 'pointer', color: '#dc2626' }}>
-                                                        <Trash2 size={16} />
-                                                    </button>
-                                                </>
-                                            ) : (
-                                                <span style={{ fontSize: '0.8rem', color: 'var(--muted-foreground)', fontStyle: 'italic' }}>Default (Baca Saja)</span>
-                                            )}
+                                            <button onClick={() => handleEdit(item)} style={{ background: 'none', border: '1px solid var(--border)', padding: '0.5rem', borderRadius: '6px', cursor: 'pointer', color: 'var(--primary)' }}>
+                                                <Edit size={16} />
+                                            </button>
+                                            <button onClick={() => handleDelete(item._id)} style={{ background: 'none', border: '1px solid #fee2e2', padding: '0.5rem', borderRadius: '6px', cursor: 'pointer', color: '#dc2626' }}>
+                                                <Trash2 size={16} />
+                                            </button>
                                         </td>
                                     </tr>
                                 ))}

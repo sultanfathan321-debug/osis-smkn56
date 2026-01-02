@@ -16,10 +16,13 @@ export async function GET() {
     try {
         const client = await getMongoClient();
         const db = client.db('osis_db');
-        const items = await db.collection('jurusan').find({}).toArray();
+        const collection = db.collection('jurusan');
+        let items = await collection.find({}).toArray();
 
         if (items.length === 0) {
-            return NextResponse.json(defaultJurusan);
+            // Seed defaults to DB so they get _ids and become deletable
+            await collection.insertMany(defaultJurusan.map(j => ({ ...j, createdAt: new Date() })));
+            items = await collection.find({}).toArray();
         }
 
         return NextResponse.json(items);
