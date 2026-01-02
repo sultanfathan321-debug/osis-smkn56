@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Users, Calendar, FileText, TrendingUp } from 'lucide-react';
+import { Users, Calendar, FileText, TrendingUp, Image as ImageIcon, Info, GraduationCap, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
 import styles from './Dashboard.module.css';
 
 const summary = [
@@ -77,7 +78,51 @@ export default function AdminDashboard() {
             </div>
 
             <div className={styles.recentSection}>
-                <h2>Status Database</h2>
+                <h2>Akses Cepat Pengelolaan</h2>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem', marginTop: '1rem' }}>
+                    {[
+                        { label: 'Kelola Jurusan', icon: GraduationCap, path: '/admin/jurusan', color: '#10b981' },
+                        { label: 'Info Organisasi', icon: Info, path: '/admin/tentang-info', color: '#3b82f6' },
+                        { label: 'Update Galeri', icon: ImageIcon, path: '/admin/dokumentasi', color: '#8b5cf6' },
+                        { label: 'Update Artikel', icon: FileText, path: '/admin/artikel', color: '#f59e0b' },
+                        { label: 'Jadwal Agenda', icon: Calendar, path: '/admin/agenda', color: '#ef4444' }
+                    ].map((item, idx) => (
+                        <Link key={idx} href={item.path} style={{
+                            textDecoration: 'none',
+                            color: 'inherit',
+                            background: 'var(--card-bg)',
+                            padding: '1.25rem',
+                            borderRadius: '12px',
+                            border: '1px solid var(--border)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            transition: 'all 0.2s'
+                        }}
+                            onMouseOver={(e) => {
+                                e.currentTarget.style.transform = 'translateY(-2px)';
+                                e.currentTarget.style.borderColor = 'var(--primary)';
+                                e.currentTarget.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
+                            }}
+                            onMouseOut={(e) => {
+                                e.currentTarget.style.transform = 'translateY(0)';
+                                e.currentTarget.style.borderColor = 'var(--border)';
+                                e.currentTarget.style.boxShadow = 'none';
+                            }}>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                                <div style={{ background: `${item.color}20`, color: item.color, padding: '0.6rem', borderRadius: '8px', display: 'flex' }}>
+                                    <item.icon size={20} />
+                                </div>
+                                <span style={{ fontWeight: '600', fontSize: '0.95rem' }}>{item.label}</span>
+                            </div>
+                            <ChevronRight size={18} color="var(--muted-foreground)" />
+                        </Link>
+                    ))}
+                </div>
+            </div>
+
+            <div className={styles.recentSection} style={{ marginTop: '2.5rem' }}>
+                <h2>Status Database & Sistem</h2>
                 <div className={styles.recentList}>
                     <div className={styles.recentItem}>
                         <div className={styles.dot} style={{ background: 'var(--success)' }}></div>
@@ -85,7 +130,7 @@ export default function AdminDashboard() {
                     </div>
                     <div className={styles.recentItem}>
                         <div className={styles.dot}></div>
-                        <p>Data sudah beralih dari file JSON ke MongoDB</p>
+                        <p>Sistem Pengelolaan Jurusan & Visi-Misi: <strong>Terintegrasi</strong></p>
                     </div>
                 </div>
             </div>
