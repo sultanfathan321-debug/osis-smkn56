@@ -23,7 +23,7 @@ export async function POST(request) {
         const db = client.db('osis_db');
         const collection = db.collection('dokumentasi');
 
-        const { id, title, category, image } = body;
+        const { id, title, category, image, date, location } = body;
 
         if (id) {
             // Update
@@ -39,6 +39,8 @@ export async function POST(request) {
                 title,
                 category,
                 image,
+                date: date || '',
+                location: location || '',
                 createdAt: new Date()
             });
             return NextResponse.json({ success: true, id: result.insertedId });

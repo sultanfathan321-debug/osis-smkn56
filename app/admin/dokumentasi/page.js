@@ -8,7 +8,7 @@ export default function AdminDokumentasiPage() {
     const [docs, setDocs] = useState([]);
     const [isFormOpen, setIsFormOpen] = useState(false);
     const [loading, setLoading] = useState(true);
-    const [formData, setFormData] = useState({ id: null, title: '', category: 'Event', image: '' });
+    const [formData, setFormData] = useState({ id: null, title: '', category: 'Event', image: '', date: '', location: '' });
 
     // Fetch Dokumentasi
     const fetchDocs = () => {
@@ -27,7 +27,7 @@ export default function AdminDokumentasiPage() {
     }, []);
 
     const resetForm = () => {
-        setFormData({ id: null, title: '', category: 'Event', image: '' });
+        setFormData({ id: null, title: '', category: 'Event', image: '', date: '', location: '' });
         setIsFormOpen(false);
     };
 
@@ -36,7 +36,9 @@ export default function AdminDokumentasiPage() {
             id: item._id,
             title: item.title,
             category: item.category,
-            image: item.image
+            image: item.image,
+            date: item.date || '',
+            location: item.location || ''
         });
         setIsFormOpen(true);
     };
@@ -140,13 +142,34 @@ export default function AdminDokumentasiPage() {
                                 <select
                                     value={formData.category}
                                     onChange={e => setFormData({ ...formData, category: e.target.value })}
-                                    style={{ padding: '0.8rem', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '1rem' }}
+                                    style={{ padding: '0.8rem', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '1rem', background: 'transparent', color: 'inherit' }}
                                 >
                                     <option>Event</option>
                                     <option>Rapat</option>
                                     <option>Lomba</option>
                                     <option>Sosial</option>
                                 </select>
+                            </div>
+                        </div>
+
+                        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                            <div style={{ flex: 1, minWidth: '200px', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                                <label style={{ fontSize: '0.9rem', color: 'var(--muted-foreground)' }}>Tanggal Kegiatan</label>
+                                <input
+                                    placeholder="Contoh: 15-17 Agu 2024"
+                                    value={formData.date}
+                                    onChange={e => setFormData({ ...formData, date: e.target.value })}
+                                    style={{ padding: '0.8rem', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '1rem', background: 'transparent', color: 'inherit' }}
+                                />
+                            </div>
+                            <div style={{ flex: 1, minWidth: '200px', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                                <label style={{ fontSize: '0.9rem', color: 'var(--muted-foreground)' }}>Lokasi Kegiatan</label>
+                                <input
+                                    placeholder="Contoh: Puncak, Bogor"
+                                    value={formData.location}
+                                    onChange={e => setFormData({ ...formData, location: e.target.value })}
+                                    style={{ padding: '0.8rem', borderRadius: '8px', border: '1px solid #cbd5e1', fontSize: '1rem', background: 'transparent', color: 'inherit' }}
+                                />
                             </div>
                         </div>
 
@@ -195,7 +218,7 @@ export default function AdminDokumentasiPage() {
                             <thead>
                                 <tr style={{ borderBottom: '2px solid var(--border)' }}>
                                     <th style={{ padding: '1rem' }}>Foto</th>
-                                    <th style={{ padding: '1rem' }}>Judul Dokumentasi</th>
+                                    <th style={{ padding: '1rem' }}>Judul & Detail</th>
                                     <th style={{ padding: '1rem' }}>Kategori</th>
                                     <th style={{ padding: '1rem' }}>Aksi</th>
                                 </tr>
@@ -208,7 +231,12 @@ export default function AdminDokumentasiPage() {
                                         <td style={{ padding: '1rem' }}>
                                             <img src={item.image} alt={item.title} style={{ width: '80px', height: '50px', objectFit: 'cover', borderRadius: '4px' }} />
                                         </td>
-                                        <td style={{ padding: '1rem', fontWeight: '500' }}>{item.title}</td>
+                                        <td style={{ padding: '1rem' }}>
+                                            <div style={{ fontWeight: '600', marginBottom: '0.2rem' }}>{item.title}</div>
+                                            <div style={{ fontSize: '0.75rem', color: 'var(--muted-foreground)' }}>
+                                                {item.date || '-'} • {item.location || '-'}
+                                            </div>
+                                        </td>
                                         <td style={{ padding: '1rem' }}>
                                             <span style={{
                                                 padding: '0.25rem 0.75rem',
