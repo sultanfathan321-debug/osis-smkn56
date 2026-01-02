@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Send, User, BookOpen, PenTool } from 'lucide-react';
 import styles from './Daftar.module.css';
 
