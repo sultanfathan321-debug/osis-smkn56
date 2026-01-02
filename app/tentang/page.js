@@ -7,18 +7,24 @@ import styles from './Tentang.module.css';
 export default function TentangPage() {
     const [members, setMembers] = useState([]);
     const [divisions, setDivisions] = useState([]);
+    const [info, setInfo] = useState({ visi: '', misi: [] });
+    const [loadingInfo, setLoadingInfo] = useState(true);
 
     useEffect(() => {
         Promise.all([
             fetch('/api/organisasi').then(res => res.json()),
-            fetch('/api/divisions').then(res => res.json())
-        ]).then(([orgData, divData]) => {
+            fetch('/api/divisions').then(res => res.json()),
+            fetch('/api/organisasi-info').then(res => res.json())
+        ]).then(([orgData, divData, infoData]) => {
             setMembers(Array.isArray(orgData) ? orgData : []);
             setDivisions(Array.isArray(divData) ? divData : []);
+            setInfo(infoData);
+            setLoadingInfo(false);
         }).catch(err => {
             console.error("Failed to load data", err);
             setMembers([]);
             setDivisions([]);
+            setLoadingInfo(false);
         });
     }, []);
 
@@ -33,23 +39,26 @@ export default function TentangPage() {
 
             <div className={styles.container}>
                 {/* Visi Misi */}
-                <section className={styles.visionMission}>
-                    <div className={styles.visionCard}>
-                        <div className={styles.iconBox}><Target size={32} /></div>
-                        <h2>Visi</h2>
-                        <p>"Menjadikan OSIS SMKN 56 Jakarta sebagai organisasi yang aktif, aspiratif, dan kompeten dalam mewujudkan siswa yang berkarakter Pancasila."</p>
-                    </div>
-                    <div className={styles.visionCard}>
-                        <div className={styles.iconBox}><Lightbulb size={32} /></div>
-                        <h2>Misi</h2>
-                        <ul className={styles.list}>
-                            <li>Meningkatkan kedisiplinan dan sopan santun siswa.</li>
-                            <li>Menyelenggarakan kegiatan yang mengembangkan minat dan bakat.</li>
-                            <li>Membangun kerjasama yang baik antar warga sekolah.</li>
-                            <li>Mengoptimalkan fungsi media sosial sebagai sarana informasi.</li>
-                        </ul>
-                    </div>
-                </section>
+                {loadingInfo ? (
+                    <div style={{ textAlign: 'center', padding: '2rem', color: 'var(--muted-foreground)' }}>Memuat Info...</div>
+                ) : (
+                    <section className={styles.visionMission}>
+                        <div className={styles.visionCard}>
+                            <div className={styles.iconBox}><Target size={32} /></div>
+                            <h2>Visi</h2>
+                            <p>"{info.visi}"</p>
+                        </div>
+                        <div className={styles.visionCard}>
+                            <div className={styles.iconBox}><Lightbulb size={32} /></div>
+                            <h2>Misi</h2>
+                            <ul className={styles.list}>
+                                {info.misi.map((point, index) => (
+                                    <li key={index}>{point}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    </section>
+                )}
 
                 {/* Struktur Pengurus Dynamic */}
                 <section>
