@@ -9,6 +9,16 @@ export default function AgendaPage() {
     const [allEvents, setAllEvents] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    // Helper function to check if content is new (within 7 days)
+    const isNew = (createdAt) => {
+        if (!createdAt) return false;
+        const created = new Date(createdAt);
+        const now = new Date();
+        const diffTime = Math.abs(now - created);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        return diffDays <= 7;
+    };
+
     useEffect(() => {
         fetch('/api/agenda')
             .then(res => res.json())
@@ -59,6 +69,9 @@ export default function AgendaPage() {
                         {filteredEvents.length > 0 ? (
                             filteredEvents.map((event) => (
                                 <div key={event.id} className={styles.eventCard}>
+                                    {isNew(event.createdAt) && (
+                                        <span className={styles.newBadge}>NEW</span>
+                                    )}
                                     <div className={styles.dateBox}>
                                         <span className={styles.dateDay}>{new Date(event.date).getDate()}</span>
                                         <span className={styles.dateMonth}>

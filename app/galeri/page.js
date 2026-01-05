@@ -10,6 +10,16 @@ export default function GaleriPage() {
     const [filter, setFilter] = useState('Semua');
     const [loading, setLoading] = useState(true);
 
+    // Helper function to check if content is new (within 7 days)
+    const isNew = (createdAt) => {
+        if (!createdAt) return false;
+        const created = new Date(createdAt);
+        const now = new Date();
+        const diffTime = Math.abs(now - created);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        return diffDays <= 7;
+    };
+
     useEffect(() => {
         fetch('/api/dokumentasi')
             .then(res => res.json())
@@ -54,6 +64,9 @@ export default function GaleriPage() {
                         {filteredImages.map((img) => (
                             <div key={img._id} className={styles.card} onClick={() => setSelectedImage(img)}>
                                 <div className={styles.imageWrapper}>
+                                    {isNew(img.createdAt) && (
+                                        <span className={styles.newBadge}>NEW</span>
+                                    )}
                                     <img src={img.image} alt={img.title} className={styles.image} />
                                     <div className={styles.overlay}>
                                         <ZoomIn color="white" size={32} />

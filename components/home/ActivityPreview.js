@@ -9,6 +9,16 @@ export default function ActivityPreview() {
     const [activities, setActivities] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    // Helper function to check if content is new (within 7 days)
+    const isNew = (createdAt) => {
+        if (!createdAt) return false;
+        const created = new Date(createdAt);
+        const now = new Date();
+        const diffTime = Math.abs(now - created);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        return diffDays <= 7;
+    };
+
     useEffect(() => {
         fetch('/api/dokumentasi')
             .then(res => res.json())
@@ -60,6 +70,9 @@ export default function ActivityPreview() {
                             <div key={item._id} className={styles.card}>
                                 <div className={styles.imageWrapper}>
                                     <span className={styles.category}>{item.category}</span>
+                                    {isNew(item.createdAt) && (
+                                        <span className={styles.newBadge}>NEW</span>
+                                    )}
                                     <img src={item.image} alt={item.title} className={styles.image} />
                                 </div>
                                 <div className={styles.content}>

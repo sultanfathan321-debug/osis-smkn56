@@ -9,6 +9,16 @@ export default function ArtikelPage() {
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    // Helper function to check if content is new (within 7 days)
+    const isNew = (createdAt) => {
+        if (!createdAt) return false;
+        const created = new Date(createdAt);
+        const now = new Date();
+        const diffTime = Math.abs(now - created);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        return diffDays <= 7;
+    };
+
     useEffect(() => {
         fetch('/api/articles')
             .then(res => res.json())
@@ -36,6 +46,9 @@ export default function ArtikelPage() {
                                 <article key={article.id} className={styles.card}>
                                     <div className={styles.imageWrapper}>
                                         <span className={styles.category}>{article.category}</span>
+                                        {isNew(article.createdAt) && (
+                                            <span className={styles.newBadge}>NEW</span>
+                                        )}
                                         <img
                                             src={article.image || 'https://via.placeholder.com/400x200?text=No+Image'}
                                             alt={article.title}
