@@ -87,6 +87,7 @@ export default function AgendaPage() {
                             <p className={styles.empty}>Tidak ada agenda ditemukan.</p>
                         )}
                     </div>
+                )}
             </div>
         </main>
     );
